@@ -1,0 +1,28 @@
+questions_list:
+  path: '/questions'
+  defaults:
+    _controller: '\Drupal\questions\Controller\QusController::questions_list'
+  requirements:
+    _permission: 'access content'
+
+question_node:
+  path: '/questions/node'
+  defaults:
+    _controller: '\Drupal\questions\Controller\QusNodeController::question_node'
+  requirements:
+    _permission: 'access content'
+    
+questions.settings:
+  path: '/admin/content/questions/settings'
+  defaults:
+    _form: '\Drupal\questions\Form\questionsSettingsForm'
+    _title: 'Questions Settings'
+  requirements:
+    _permission: 'QL admin access'
+    
+questions_add_form:
+  path: '/questions/add_question'
+  defaults:
+    _form: '\Drupal\questions\Form\AddQuestionForm'
+  requirements:
+    _permission: 'access content'

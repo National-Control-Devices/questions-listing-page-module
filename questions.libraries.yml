@@ -1,0 +1,9 @@
+questions-validation:
+  version: 1.x
+  css:
+    theme:
+      css/questions.css: {}
+  js:
+    js/jquery.js: {}
+    js/validate.js: {}
+    js/jquery_validate.js: {}

@@ -1,0 +1,22 @@
+<?php
+/**
+ * @File
+ * Example custom module for Drupal 8.
+ * @author Gur
+ * https://www.youtube.com/embed/zoia8WZ6q5w
+ */
+/**
+ * Implements hook_theme().
+ */
+function questions_theme() {
+    return array(
+        'questions_list' => array(
+            'variables' => array('content' => NULL),
+            'template' => 'question-list',
+        ),
+        'questions_node' => array(
+            'variables' => array('content' => NULL,'content1' => NULL,'content2' => NULL),
+            'template' => 'question-node',
+        ),
+    );
+}

@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ */
+#}
+<div class="wrapper">	
+	<div class="top_bar">
+		<div class="question-title"><h1>{{ 'Questions'|t }}</h1></div>
+		{% if content.add_url is not empty %}
+			<div class="questions-navigation">
+				<ul class="questions-navigation-url">
+					<li><a href="{{ content.add_url }}">{{ 'Ask Question'|t }}</a></li>
+				</ul>
+			</div>
+		 {% endif %}
+	</div> 
+	<div class="questions-list">
+		<ul>
+			{% for item in content.list %}
+				<li>
+					<div class="vote {% if item.vote > 0 %}active{% endif %}">{{ item.vote }}<p>{% if item.vote > 1 or item.vote == 0 %}{{ 'votes'|t }}{% else %}{{ 'vote'|t }}{% endif %}</p></div>
+					<div class="answer {% if item.answer > 0 %}active{% endif %}">{{ item.answer }}<p>{% if item.answer > 1 or item.answer == 0 %}{{ 'answers'|t }}{% else %}{{ 'answer'|t }}{% endif %}</p></div>
+					<div class="nodetitle">
+						<h1>
+							<a href="{{ item.nodeurl }}">{{ item.nodetitle }}</a>
+						</h1>
+					</div>
+					<div class="answeredbyname">
+						<span><a href="{{ item.nodeurl }}">{{ 'asked by'|t }}<a>
+							<a href="{{ item.answeredbyurl }}">{{ item.answeredbyname }}</a>
+							{{ item.time }}
+						</span>
+					</div>
+				</li>     
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="questions-pagging">
+		<ul>
+			{% if content.current > 1 %}
+				<li><a href="{{ content.prev }}">{{ 'Prev'|t }}</a></li>
+			{% endif %}
+			{% for page_num in content.pages %}
+				<li><a class="{% if content.current == page_num.title %}active{% endif %}" href="{{ page_num.url }}">{{ page_num.title }}</a></li>
+			{% endfor %}
+			{% if content.page_count > content.current %}
+				<li><a href="{{ content.next }}">{{ 'Next'|t }}</a></li>
+			{% endif %}
+		</ul>
+	</div>
+</div>
+        
+
+    

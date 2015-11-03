@@ -1,0 +1,4 @@
+questions.settings:
+  parent: system.admin
+  route_name: questions.settings
+  title: Questions Settings
